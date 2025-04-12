@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+
 </head>
 <body>
 
+{% block content %}
+  <h1>Taxi Service Home</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Dynamic content</h2>
+  <p>The Taxi service has the following record counts:</p>
+  <ul>
+    <li><strong>Cars:</strong> {{ num_team }}</li>
+
+  </ul>
+
+
+  </p>
+
+{% endblock %}
 </body>
 </html>
