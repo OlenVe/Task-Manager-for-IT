@@ -13,6 +13,7 @@ class Position(models.Model):
     name = models.CharField(max_length=100)
 
 
+
 class Team(models.Model):
     name = models.CharField(max_length=100)
 

@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "crispy_forms",
+    "crispy_bootstrap5",
     "tasker",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -51,6 +53,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "task_manager_for_it.urls"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
