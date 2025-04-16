@@ -1,23 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "base.html" %}
 
-</head>
-<body>
+{% load static %}
 
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_team }}</li>
+<!--------------------------Overview block---------------------------------------------->
+<div class="container-fluid py-4">
+  <div class="row">
+    <!-- Перший блок з статистикою -->
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <a href="{% url 'tasker:task-list' %}" class="card h-100 bg-gradient-primary text-decoration-none">
+        <div class="card-body p-4 position-relative">
+          <h5 class="text-white fw-bold mb-4">Tasks Overview</h5>
+          <div class="row">
 
-  </ul>
+            <!-- Total Tasks -->
+            <div class="col-12 mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white fw-bold" style="font-size: 18px;">Total Tasks</h6>
+                <span class="text-dark fw-bold" style="font-size: 22px; background-color: white; padding: 5px 15px; border-radius: 20px;">{{ total_tasks }}</span>
+              </div>
+            </div>
+
+            <!-- Completed -->
+            <div class="col-12 mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white fw-bold" style="font-size: 18px;">Completed</h6>
+                <span class="text-dark fw-bold" style="font-size: 22px; background-color: white; padding: 5px 15px; border-radius: 20px;">{{ completed_tasks }}</span>
+              </div>
+            </div>
+
+            <!-- Active -->
+            <div class="col-12 mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white fw-bold" style="font-size: 18px;">Active</h6>
+                <span class="text-dark fw-bold" style="font-size: 22px; background-color: white; padding: 5px 15px; border-radius: 20px;">{{ active_tasks }}</span>
+              </div>
+            </div>
+
+            <!-- High Priority -->
+            <div class="col-12 mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white fw-bold" style="font-size: 18px;">High Priority</h6>
+                <span class="text-dark fw-bold" style="font-size: 22px; background-color: white; padding: 5px 15px; border-radius: 20px;">{{ high_priority_tasks }}</span>
+              </div>
+            </div>
+
+            <!-- Low Priority -->
+            <div class="col-12 mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white fw-bold" style="font-size: 18px;">Low Priority</h6>
+                <span class="text-dark fw-bold" style="font-size: 22px; background-color: white; padding: 5px 15px; border-radius: 20px;">{{ low_priority_tasks }}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Блок WORKERS -->
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <a href="{% url 'tasker:worker-list' %}" class="card h-100 bg-gradient-primary text-decoration-none">
+        <div class="card-body p-4 position-relative">
+          <h5 class="text-white fw-bold mb-4">Workers Overview</h5>
+          <div class="row">
+
+            <!-- Total Workers -->
+            <div class="col-12 mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white fw-bold" style="font-size: 18px;">Total Workers</h6>
+                <span class="text-dark fw-bold" style="font-size: 22px; background-color: white; padding: 5px 15px; border-radius: 20px;">{{ total_workers }}</span>
+              </div>
+            </div>
+
+            <!-- Workers by Position -->
+            {% for position, count in workers_by_position.items %}
+            <div class="col-12 mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white fw-bold" style="font-size: 18px;">{{ position }}</h6>
+                <span class="text-dark fw-bold" style="font-size: 22px; background-color: white; padding: 5px 15px; border-radius: 20px;">{{ count }}</span>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Залишено місце для 3-го блоку -->
+    <div class="col-lg-4 col-md-6 col-12 mb-4">
+      <!-- Порожній блок, де можна додати нові елементи пізніше -->
+    </div>
+
+  </div>
+</div>
 
 
-  </p>
 
-{% endblock %}
-</body>
-</html>
+<!------------------------------------------- bottom---------------------------------------------------------->
+  <div class="row my-4">
+  <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+  <div class="card">
+  <div class="card-header pb-0">
+    <div class="row">
+      <div class="col-lg-6 col-7">
+        <h6>Projects</h6>
+        <p class="text-sm mb-0">
+          <i class="fa fa-check text-info" aria-hidden="true"></i>
+          <span class="font-weight-bold ms-1">{{ completed_projects_count }} done</span> this month
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Project</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Team</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in project_data %}
+  <tr>
+    <td>
+      <div class="d-flex px-2 py-1">
+        <div>
+          <img src="{% static 'assets/img/small-logos/logo-xd.svg' %}" class="avatar avatar-sm me-3" alt="{{ item.project.name }}">
+        </div>
+        <div class="d-flex flex-column justify-content-center">
+          <h6 class="mb-0 text-sm">{{ item.project.name }}</h6>
+          <p class="text-xs text-secondary mb-0">{{ item.project.description }}</p>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="d-flex flex-column justify-content-center">
+        <h6 class="mb-0 text-sm">{{ item.project.team.name }}</h6>
+      </div>
+    </td>
+    <td class="align-middle text-center">
+      <div class="progress-wrapper w-75 mx-auto">
+        <div class="progress-info">
+          <div class="progress-percentage">
+            <span class="text-xs font-weight-bold">{{ item.completion_percentage }}%</span>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="{{ item.completion_percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ item.completion_percentage }}%"></div>
+        </div>
+      </div>
+    </td>
+  </tr>
+  {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+  <div class="card h-100">
+    <div class="card-header pb-0">
+      <h6>Tasks by Deadline</h6>
+      <p class="text-sm text-muted">
+        <i class="fa fa-clock text-warning" aria-hidden="true"></i>
+        Sorted by soonest deadline
+      </p>
+    </div>
+    <div class="card-body p-3">
+      <div class="timeline timeline-one-side">
+        {% for task in tasks_deadline %}
+          <div class="timeline-block mb-3">
+            <span class="timeline-step">
+              <i class="ni ni-check-bold text-info text-gradient"></i>
+            </span>
+            <div class="timeline-content">
+              <h6 class="text-dark text-sm font-weight-bold mb-0">{{ task.name }}</h6>
+              <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
+                {{ task.deadline|date:"d M Y, H:i" }}
+              </p>
+            </div>
+          </div>
+        {% empty %}
+          <div class="timeline-block">
+            <span class="timeline-step">
+              <i class="ni ni-alert-circle-exc text-danger text-gradient"></i>
+            </span>
+            <div class="timeline-content">
+              <h6 class="text-dark text-sm font-weight-bold mb-0">No tasks available</h6>
+              <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Add some tasks to get started</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+    {% endblock %}

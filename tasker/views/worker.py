@@ -4,13 +4,14 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from tasker.forms.worker import WorkerCreateForm
-from tasker.models import Worker
+from tasker.forms import WorkerForm
+from accounts.models import Worker
 
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):
     model = Worker
     paginate_by = 10
+    template_name = "tasker/worker/worker_list.html"
 
 
 class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
@@ -19,17 +20,14 @@ class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "tasker/worker/worker_detail.html"
 
 
-class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Worker
-    success_url = reverse_lazy("tasker:worker-list")
-    form_class = WorkerCreateForm
-
-
 class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Worker
     success_url = reverse_lazy("tasker:worker-list")
-    form_class = WorkerUpdateForm
-    template_name = "tasker/worker/worker_update.html"
+    template_name = "tasker/worker/worker_form.html"
+    fields = ("username",
+              "position",
+              "team",
+              )
 
 
 class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):

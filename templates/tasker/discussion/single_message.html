@@ -1,0 +1,12 @@
+<div class="message-item {% if message.user == request.user %}message-mine{% endif %}"
+     {% if current_page %}hx-get="{{ message.chat.get_absolute_url }}?page={{ current_page.number|add:'-1' }}"
+     hx-trigger="intersect once" hx-swap="afterbegin" hx-target="#message-container"
+     hx-on::after-request="scrollToBottom('clientHeight')"{% endif %}>
+  <div class="message-header">
+    <span class="message-user">{{ message.user.username }}</span>
+    <span class="message-time">{{ message.created_at|date:"M d, Y H:i" }}</span>
+  </div>
+  <div class="message-content">
+    {{ message.text }}
+  </div>
+</div>

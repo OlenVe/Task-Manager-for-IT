@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow-sm p-4 w-100" style="max-width: 600px;">
+    <h3 class="mb-4 text-center">Update personal info</h3>
+
+    <form method="post" novalidate enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form|crispy }}
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Upload Photo</label>
+        <input type="file" id="photo" name="photo" class="form-control" disabled>
+        <div class="form-text text-muted">Photo upload will be available soon.</div>
+      </div>
+
+      <div class="text-center mt-3">
+        <input type="submit" value="Submit" class="btn btn-primary px-4">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

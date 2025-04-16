@@ -1,0 +1,7 @@
+{% for message in page.object_list %}
+  {% if page.has_previous and forloop.first %}
+    {% include "messanger/partials/single_message.html" with message=message current_page=page %}
+  {% else %}
+    {% include "messanger/partials/single_message.html" with message=message %}
+  {% endif %}
+{% endfor %}

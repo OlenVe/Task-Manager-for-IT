@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow-sm p-4 w-100" style="max-width: 700px;">
+    <h3 class="mb-4 text-center">Task Form</h3>
+
+    <form method="post" novalidate enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Поле Project (тільки для перегляду) -->
+      <div class="mb-3">
+        <label class="form-label">Project</label>
+        <input type="text" class="form-control" value="{{ form.instance.project.name }}" disabled>
+        <div class="form-text text-muted">This task belongs to this project.</div>
+      </div>
+
+      <!-- Поле Name -->
+      {{ form.name|as_crispy_field }}
+
+      <!-- Поле Description із висотою 3 рядки -->
+      <div class="mb-3">
+        <label for="id_description" class="form-label">Description</label>
+        <textarea name="description" id="id_description" class="form-control" rows="3">{{ form.description.value }}</textarea>
+      </div>
+
+      <!-- Поле Deadline з picker'ом -->
+      <div class="mb-3">
+        <label for="id_deadline" class="form-label">Deadline</label>
+        <input type="datetime-local" name="deadline" id="id_deadline"
+               class="form-control" value="{{ form.deadline.value|date:'Y-m-d\\TH:i' }}">
+      </div>
+
+      <!-- Інші поля -->
+      {{ form.priority|as_crispy_field }}
+      {{ form.task_type|as_crispy_field }}
+
+      <!-- Чекбокси для Workers -->
+      <div class="mb-3">
+        <label class="form-label">Assign Workers</label>
+        <div class="form-check">
+          {% for worker in form.fields.workers.queryset %}
+            <div class="form-check mb-2">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="workers"
+                value="{{ worker.id }}"
+                id="worker_{{ worker.id }}"
+                {% if worker in form.initial.workers %}checked{% endif %}
+              >
+              <label class="form-check-label" for="worker_{{ worker.id }}">
+                {{ worker.username }} ({{ worker.position }}, {{ worker.team.name }})
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="text-center mt-3">
+        <input type="submit" value="Submit" class="btn btn-primary px-4">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

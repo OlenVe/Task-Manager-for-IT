@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from tasker.models import Worker, Task, Project, Position, Team, TaskType
+from tasker.models import Task, Project, Position, Team, TaskType
+from accounts.models import Worker
 
 
 @admin.register(Worker)
@@ -18,7 +19,6 @@ class WorkerAdmin(UserAdmin):
                         "last_name",
                         "position",
                         "team",
-                        "task",
                     )
                 },
             ),

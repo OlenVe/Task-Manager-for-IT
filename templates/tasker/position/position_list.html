@@ -3,15 +3,14 @@
 {% block content %}
   <h1>
     Positions List
-    <a href="{% url 'tasker:position-create' %}" class="btn btn-primary link-to-page">
+  </h1>
+  <a href="{% url 'tasker:position-create' %}" class="btn btn-primary link-to-page">
       Create
     </a>
-  </h1>
 
   {% if position_list %}
     <table class="table">
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Update</th>
         <th>Delete</th>
@@ -19,9 +18,6 @@
 
       {% for position in position_list %}
         <tr>
-          <td>
-              {{ position.id }}
-          </td>
           <td>
               {{ position.name }}
           </td>

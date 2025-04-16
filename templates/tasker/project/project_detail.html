@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card shadow rounded-4 mb-4">
+        <div class="card-body">
+          <h3 class="card-title">{{ project.name }}</h3>
+          <p class="card-text"><strong>Team:</strong> {{ project.team.name }}</p>
+          <p class="card-text"><strong>Description:</strong> {{ project.description }}</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h4>Tasks</h4>
+        <a href="{% url 'tasker:task-create' %}" class="btn btn-sm btn-primary">
+          Create New Task
+        </a>
+      </div>
+
+      <div class="row">
+        {% if project.tasks.all %}
+          {% for task in project.tasks.all %}
+            <div class="col-md-6 mb-4">
+              <a href="{% url 'tasker:task-detail' pk=task.id %}" class="text-decoration-none">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ task.name }}</h5>
+                    <p class="card-text"><strong>Deadline:</strong> {{ task.deadline }}</p>
+                    <p class="card-text"><strong>Status:</strong>
+                      {% if task.is_completed %}
+                        <span class="text-success">Completed</span>
+                      {% else %}
+                        <span class="text-warning">Pending</span>
+                      {% endif %}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-12">
+            <p>No tasks yet for this project.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

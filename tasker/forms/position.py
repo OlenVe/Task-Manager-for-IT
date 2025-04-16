@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from tasker.models import Position
 
 
-class PositionCreateForm(forms.ModelForm):
+class PositionForm(forms.ModelForm):
     class Meta:
         model = Position
         fields = "__all__"

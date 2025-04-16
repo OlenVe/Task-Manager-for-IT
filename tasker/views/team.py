@@ -16,14 +16,18 @@ class TeamCreateView(LoginRequiredMixin, generic.CreateView):
     model = Team
     fields = "__all__"
     success_url = reverse_lazy("tasker:team-list")
+    template_name = "tasker/team/team_form.html"
 
 
 class TeamUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Team
     fields = "__all__"
     success_url = reverse_lazy("tasker:team-list")
+    template_name = "tasker/team/team_form.html"
 
 
 class TeamDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Team
+    context_object_name = "team"
     success_url = reverse_lazy("tasker:team-list")
+    template_name = "tasker/team/team_confirm_delete.html"

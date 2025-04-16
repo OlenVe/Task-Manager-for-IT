@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete team {{ object.name }}?</h1>
+  <h2>Now in team: {% for worker in object.members.all %}
+      <li>{{ worker.username }}</li>
+    {% endfor %}</h2>
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Yes" class="btn btn-danger">
+    <a href="{% url "tasker:team-list" %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}

@@ -1,9 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 
-from tasker.models import Worker
+from accounts.models import Worker
 
 
-class WorkerCreateForm(UserCreationForm):
+class WorkerForm(UserCreationForm):
     class Meta:
         model = Worker
         fields = UserCreationForm.Meta.fields + (
@@ -14,3 +14,4 @@ class WorkerCreateForm(UserCreationForm):
             "project",
             "team",
         )
+

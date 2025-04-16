@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    team List
+    <a href="{% url 'tasker:team-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+
+  {% if team_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for team in team_list %}
+        <tr>
+          <td>
+              {{ team.id }}
+          </td>
+          <td>
+              {{ team.name }}
+          </td>
+          <td>
+              <a href="{% url 'tasker:team-update' pk=team.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'tasker:team-delete' pk=team.id %}">
+                Delete
+              </a>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no team in the service.</p>
+  {% endif %}
+{% endblock %}

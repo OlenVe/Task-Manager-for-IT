@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1>Worker List</h1>
+
+      <div class="row">
+        {% if worker_list %}
+          {% for worker in worker_list %}
+            <div class="col-md-4 mb-4">
+              <a href="{% url 'tasker:worker-detail' pk=worker.id %}" class="text-decoration-none">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-center mb-3">
+                      <!-- Місце для фотографії працівника -->
+                      <div class="rounded-circle" style="width: 100px; height: 100px; background-color: #f0f0f0;">
+                        <!-- Тут можна вставити фото, наприклад: <img src="{{ worker.photo.url }}" alt="worker" class="img-fluid rounded-circle"> -->
+                      </div>
+                    </div>
+                    <h5 class="card-title">{{ worker.username }}</h5>
+                    <p class="card-text"><strong>Full name:</strong> {{ worker.first_name }} {{ worker.last_name }}</p>
+                    <p class="card-text"><strong>Position:</strong> {{ worker.position }}</p>
+                    <p class="card-text"><strong>Team:</strong> {{ worker.team }}</p>
+
+                    <h6>Tasks:</h6>
+                    <ul>
+                      {% for task in worker.task.all %}
+                        <li>{{ task.name }}</li>
+                      {% endfor %}
+                    </ul>
+
+                    <p class="card-text"><strong>Project:</strong> {{ worker.project }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-12">
+            <p>There are no workers in the service.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

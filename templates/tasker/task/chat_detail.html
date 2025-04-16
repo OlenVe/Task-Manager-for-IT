@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="chat-wrapper">
+    <div class="card">
+      <div class="chat-header">
+        <h2>{{ chat.name }}</h2>
+        <span class="message-count">{{ chat.messages.count }} messages</span>
+      </div>
+
+      <div class="message-container" id="message-container">
+        {% for message in page.object_list %}
+          {% if page.has_previous and forloop.first %}
+            {% include "messanger/partials/single_message.html" with message=message current_page=page %}
+          {% else %}
+            {% include "messanger/partials/single_message.html" with message=message %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="form-container">
+        <form id="message-create-form" hx-post="{{ chat.get_absolute_url }}"
+              hx-target="#message-container"
+              hx-swap="beforeend"
+              hx-on::after-request="this.reset(); scrollToBottom()">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <input type="submit" value="Send">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollToBottom(height) {
+      let container = document.getElementById('message-container');
+      container.scrollTop = container[height] || container.scrollHeight;
+    }
+
+    window.onload = (event) => {
+      setTimeout(() => {
+        scrollToBottom('scrollHeight');
+      }, 200);
+    };
+  </script>
+{% endblock %}
