@@ -7,7 +7,7 @@ from django.db import transaction
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -22,8 +22,11 @@ from accounts.forms import CustomUserCreationForm
 from accounts.token_service import account_activation_token
 from accounts.user_service import UserService
 
+from django.contrib.auth import get_user_model
+
 logger = logging.getLogger(__name__)
 
+User = get_user_model()
 
 class SignUpView(View):
     def get(self, request: HttpRequest) -> HttpResponse:

@@ -14,20 +14,22 @@ class DashboardView(TemplateView):
         context["total_tasks"] = tasks.count()
         context["completed_tasks"] = tasks.filter(is_completed=True).count()
         context["active_tasks"] = tasks.filter(is_completed=False).count()
-        context["high_priority_tasks"] = tasks.filter(priority="high").count()
-        context["low_priority_tasks"] = tasks.filter(priority="low").count()
+        context["high_priority_tasks"] = tasks.filter(priority="High").count()
+        context["critical_priority_tasks"] = tasks.filter(priority="Critical").count()
 
         #tasks deadline
         tasks_deadline = Task.objects.order_by('deadline')
         context["tasks_deadline"] = Task.objects.order_by('deadline')
 
         # Workers
-        workers = Worker.objects.all()
-        context["total_workers"] = workers.count()
-        context["workers_by_position"] = dict(
-            workers.values_list("position").annotate(count=Count("id")).values_list("position", "count")
-        )
-        # projects
+        workers_by_position = Worker.objects.values('position__name').annotate(count=Count('id'))
+
+        # List of workers
+        position_count = {worker['position__name']: worker['count'] for worker in workers_by_position}
+        context["workers_by_position"] = position_count
+        context["total_workers"] = Worker.objects.count()
+
+        # Projects
         projects = Project.objects.select_related("team").prefetch_related("tasks").all()
         project_data = []
 
@@ -40,10 +42,12 @@ class DashboardView(TemplateView):
             else:
                 completion_percentage = 0
 
-            project_data.append({
+            project_data.append(
+                {
                 "project": project,
                 "completion_percentage": completion_percentage
-            })
+                }
+            )
 
         context["project_data"] = project_data
 

@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect
 from django.urls.base import reverse_lazy
 from django.views import generic
@@ -9,7 +10,7 @@ from tasker.models import Task, Project
 
 class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
-    paginate_by = 5
+    paginate_by = 15
     queryset = Task.objects.all()
     template_name = "tasker/task/task_list.html"
 
@@ -26,15 +27,38 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'tasker/task/task_form.html'
     success_url = reverse_lazy('tasker:task-list')
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["project"] = get_object_or_404(Project, id=self.kwargs["project_id"])
+        kwargs["user"] = self.request.user
+        return kwargs
+
     def form_valid(self, form):
-        # Якщо форма дійсна, ми створюємо завдання
-        return super().form_valid(form)
+        # Встановлюємо обов'язкові поля перед збереженням
+        form.instance.project = get_object_or_404(Project, id=self.kwargs["project_id"])
+        form.instance.created_by = self.request.user
+        form.instance.team = self.request.user.team  # Встановлюємо команду з поточного користувача
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Create Task'
-        return context
+        try:
+            with transaction.atomic():
+                # Спочатку зберігаємо основну форму
+                response = super().form_valid(form)
 
+                # Якщо є поле workers (ManyToMany), встановлюємо його після збереження
+                if hasattr(form.instance, 'workers') and 'workers' in form.cleaned_data:
+                    form.instance.workers.set(form.cleaned_data['workers'])
+
+                return response
+
+        except Exception as e:
+            print("❌ Помилка при збереженні:", e)
+            print("Дані форми:", form.cleaned_data)
+            return self.form_invalid(form)
+
+    def form_invalid(self, form):
+        print("❌ Помилки валідації форми:")
+        print(form.errors)
+        return super().form_invalid(form)
 
 class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Task

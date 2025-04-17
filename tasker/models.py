@@ -38,14 +38,17 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES, default="Low")
     task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE, related_name="tasks")
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="tasks")
-    workers = models.ManyToManyField("accounts.Worker", related_name="tasks")
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="tasks", null=True, blank=True)
+    workers = models.ManyToManyField("accounts.Worker", related_name="tasks", blank=True)
     project = models.ForeignKey("Project", on_delete=models.CASCADE, related_name="tasks", null=True, blank=True)
     discussion = models.ForeignKey('Discussion',
                                    on_delete=models.CASCADE,
                                    related_name="tasks",
                                    null=True,
                                    blank=True)
+
+    class Meta:
+        ordering = ['-deadline']
 
 
 class Project(models.Model):

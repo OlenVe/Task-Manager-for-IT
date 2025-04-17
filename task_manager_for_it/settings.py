@@ -143,3 +143,7 @@ EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
 LOGIN_REDIRECT_URL = "tasker:index"
 LOGIN_URL = "accounts:login"
 LOGOUT_REDIRECT_URL = "accounts:login"
+
+
+ # for testing
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

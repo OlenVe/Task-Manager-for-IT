@@ -10,7 +10,7 @@ from accounts.models import Worker
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):
     model = Worker
-    paginate_by = 10
+    paginate_by = 20
     template_name = "tasker/worker/worker_list.html"
 
 
