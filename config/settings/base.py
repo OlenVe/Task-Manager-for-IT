@@ -23,8 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-%b_cpb&ahs8t!*4gyl(d5w@2k$@2%$du#0=ggo94-ns!6_ziy!")
 
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -75,7 +73,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -116,9 +113,6 @@ STATIC_ROOT = "staticfiles/"
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email settings
@@ -133,5 +127,3 @@ LOGIN_URL = "accounts:login"
 LOGOUT_REDIRECT_URL = "accounts:login"
 
 
- # for testing
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
