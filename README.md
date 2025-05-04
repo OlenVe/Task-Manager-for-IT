@@ -83,13 +83,19 @@ DEFAULT_FROM_EMAIL=Task Manager <noreply@example.com>
 python manage.py migrate
 ```
 
-### 6. Create a superuser (optional)
+### 6. Load initial data (optional)
+
+```bash
+python manage.py loaddata dump.json
+```
+
+### 7. Create a superuser (optional)
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 7. Run the development server
+### 8. Run the development server
 
 ```bash
 python manage.py runserver
@@ -102,4 +108,15 @@ Run tests with:
 ```bash
 python manage.py test tasker.tests
 ```
+
+## Test Users
+For testing purposes, you can use these pre-configured users in different teams:
+
+| Username | Password  | Team Role |
+|----------|-----------|-----------|
+| Gandalf  | D]YUnHp[  | Team Leader |
+| Legolas  | -8;46)Ki  | Team Member |
+| Gimli    | JKB3lH4G  | Team Member |
+
+These users are already configured with different roles and team assignments for testing various features of the application.
 

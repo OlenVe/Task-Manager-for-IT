@@ -1,40 +1,14 @@
+{% load static %}
+
 <head>
-    <style>
-        /* Стиль для бокової панелі */
-        .sidenav {
-            background-color: #fff; /* Білий фон */
-            padding: 10px;
-        }
-
-        /* Стиль для кожного елемента навігації */
-        .navbar-nav .nav-item {
-            width: 100%; /* Всі елементи будуть однакової ширини */
-        }
-
-        /* Стиль для посилань навігації */
-        .navbar-nav .nav-link {
-            font-size: 18px; /* Збільшення шрифта */
-            padding: 10px 15px; /* Відступи для зручності */
-            color: #333; /* Темний колір тексту */
-        }
-
-        /* Зміна кольору при наведенні */
-        .navbar-nav .nav-link:hover {
-            background-color: #f1f1f1;
-        }
-
-        /* Стиль для активного елемента */
-        .navbar-nav .nav-link.active {
-            background-color: #e0e0e0;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 </head>
 
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
 <div class="sidenav-header">
   <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
   <a class="navbar-brand m-0" href="{% url 'tasker:index' %}" target="_blank">
-    <span class="ms-1 font-weight-bold" style="font-size: 30px; color: #000;">Task Manager</span>
+    <span class="ms-1 font-weight-bold">Task Manager</span>
   </a>
 </div>
   <hr class="horizontal dark mt-0">

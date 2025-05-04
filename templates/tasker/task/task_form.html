@@ -1,38 +1,39 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
+{% load static %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-  <div class="card shadow-sm p-4 w-100" style="max-width: 700px;">
+  <div class="card shadow-sm p-4 w-100 task-form-card">
     <h3 class="mb-4 text-center">Task Form</h3>
 
     <form method="post" novalidate enctype="multipart/form-data">
       {% csrf_token %}
 
-      <!-- Поле Project (тільки для перегляду) -->
+      <!-- Project field (read-only) -->
       <div class="mb-3">
         <label class="form-label">Project</label>
         {{ form.project }}
         <div class="form-text text-muted">This task belongs to this project.</div>
       </div>
 
-      <!-- Поле Name -->
+      <!-- Name field -->
       {{ form.name|as_crispy_field }}
 
-      <!-- Поле Description із висотою 3 рядки -->
+      <!-- Description field with 3 rows height -->
       <div class="mb-3">
         <label for="id_description" class="form-label">Description</label>
         <textarea name="description" id="id_description" class="form-control" rows="3">{{ form.description.value }}</textarea>
       </div>
 
-      <!-- Поле Deadline з picker'ом -->
+      <!-- Deadline field with picker -->
       <div class="mb-3">
         <label for="id_deadline" class="form-label">Deadline</label>
         <input type="datetime-local" name="deadline" id="id_deadline"
                class="form-control" value="{{ form.deadline.value|date:'Y-m-d\\TH:i' }}">
       </div>
 
-      <!-- Інші поля -->
+      <!-- Other fields -->
       {{ form.priority|as_crispy_field }}
       {{ form.task_type|as_crispy_field }}
 

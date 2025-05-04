@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-  <div class="card shadow-sm p-4 w-100" style="max-width: 900px;">
+  <div class="card shadow-sm p-4 w-100 task-list-card">
     <h3 class="mb-4 text-center">Tasks List</h3>
 
     {% if task_list %}

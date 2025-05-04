@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container py-4">
@@ -6,14 +7,14 @@
     <div class="col-lg-8">
       <div class="card shadow-sm p-4">
         <div class="row">
-          <!-- Фото -->
+          <!-- Photo -->
           <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0">
-            <div class="bg-light border rounded" style="width: 150px; height: 150px;">
+            <div class="bg-light border rounded worker-photo">
               <!-- <img src="{{ worker.photo.url }}" class="img-fluid rounded" alt="Photo"> -->
             </div>
           </div>
 
-          <!-- Основна інформація -->
+          <!-- Main information -->
           <div class="col-md-8">
             <h3 class="mb-3">Username: {{ worker.username }}</h3>
             <p><strong>First name:</strong> {{ worker.first_name }}</p>
@@ -28,7 +29,7 @@
           </div>
         </div>
 
-        <!-- Список завдань -->
+        <!-- Task list -->
         <div class="mt-5 pt-4 border-top">
           <h4>Tasks</h4>
           {% if worker.tasks.all %}
