@@ -13,6 +13,13 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 20
     template_name = "tasker/worker/worker_list.html"
 
+    def get_queryset(self):
+        return (
+            Worker.objects.select_related("position", "project", "team")
+            .prefetch_related("tasks", "teams")
+            .order_by("username")
+        )
+
 
 class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Worker
@@ -22,33 +29,15 @@ class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
 
 class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Worker
-    success_url = reverse_lazy("tasker:worker-list")
+    success_url = reverse_lazy("tasker:workers-list")
     template_name = "tasker/worker/worker_form.html"
-    fields = ("username",
-              "position",
-              "team",
-              )
+    fields = (
+        "username",
+        "position",
+        "team",
+    )
 
 
 class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Worker
-    success_url = reverse_lazy("tasker:worker-list")
-
-
-
-
-
-
-#
-# @login_required
-# def assign_to_car(request, pk):
-#     car = Worker.objects.get(pk=pk)
-#     car.drivers.add(request.user)
-#     return redirect("taxi:car-detail", pk=pk)
-#
-#
-# @login_required
-# def unassign_from_car(request, pk):
-#     car = Car.objects.get(pk=pk)
-#     car.drivers.remove(request.user)
-#     return redirect("taxi:car-detail", pk=pk)
+    success_url = reverse_lazy("tasker:workers-list")

@@ -7,8 +7,8 @@ from accounts.models import Worker
 
 @admin.register(Worker)
 class WorkerAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("position", )
-    list_filter = UserAdmin.list_filter + ("position", )
+    list_display = UserAdmin.list_display + ("position",)
+    list_filter = UserAdmin.list_filter + ("position",)
     add_fieldsets = UserAdmin.add_fieldsets + (
         (
             (
@@ -25,9 +25,13 @@ class WorkerAdmin(UserAdmin):
         )
     )
 
+
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    search_fields = ("name", "description",)
+    search_fields = (
+        "name",
+        "description",
+    )
     list_filter = ("deadline", "is_completed", "priority")
 
 
@@ -40,4 +44,3 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Position)
 admin.site.register(Team)
 admin.site.register(TaskType)
-

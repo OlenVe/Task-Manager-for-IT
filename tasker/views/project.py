@@ -15,20 +15,20 @@ class ProjectListView(LoginRequiredMixin, generic.ListView):
 class ProjectCreateView(LoginRequiredMixin, generic.CreateView):
     model = Project
     fields = ("name", "team", "description")
-    success_url = reverse_lazy("tasker:project-list")
+    success_url = reverse_lazy("tasker:projects-list")
     template_name = "tasker/project/project_form.html"
 
 
 class ProjectUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Project
     fields = ("name", "team", "description")
-    success_url = reverse_lazy("tasker:project-list")
+    success_url = reverse_lazy("tasker:projects-list")
     template_name = "tasker/project/project_form.html"
 
 
 class ProjectDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Project
-    success_url = reverse_lazy("tasker:project-list")
+    success_url = reverse_lazy("tasker:projects-list")
     template_name = "tasker/project/project_confirm_delete.html"
 
 

@@ -3,6 +3,7 @@ from tasker.models import Task, Project
 from accounts.models import Worker
 from django.db.models import Count
 
+
 class DashboardView(TemplateView):
     template_name = "tasker/index.html"
 
@@ -17,20 +18,25 @@ class DashboardView(TemplateView):
         context["high_priority_tasks"] = tasks.filter(priority="High").count()
         context["critical_priority_tasks"] = tasks.filter(priority="Critical").count()
 
-        #tasks deadline
-        tasks_deadline = Task.objects.order_by('deadline')
-        context["tasks_deadline"] = Task.objects.order_by('deadline')
+        # tasks deadline
+        context["tasks_deadline"] = Task.objects.order_by("deadline")
 
         # Workers
-        workers_by_position = Worker.objects.values('position__name').annotate(count=Count('id'))
+        workers_by_position = Worker.objects.values("position__name").annotate(
+            count=Count("id")
+        )
 
         # List of workers
-        position_count = {worker['position__name']: worker['count'] for worker in workers_by_position}
+        position_count = {
+            worker["position__name"]: worker["count"] for worker in workers_by_position
+        }
         context["workers_by_position"] = position_count
         context["total_workers"] = Worker.objects.count()
 
         # Projects
-        projects = Project.objects.select_related("team").prefetch_related("tasks").all()
+        projects = (
+            Project.objects.select_related("team").prefetch_related("tasks").all()
+        )
         project_data = []
 
         for project in projects:
@@ -43,10 +49,7 @@ class DashboardView(TemplateView):
                 completion_percentage = 0
 
             project_data.append(
-                {
-                "project": project,
-                "completion_percentage": completion_percentage
-                }
+                {"project": project, "completion_percentage": completion_percentage}
             )
 
         context["project_data"] = project_data

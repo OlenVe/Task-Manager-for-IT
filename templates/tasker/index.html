@@ -8,7 +8,7 @@
   <div class="row">
     <!-- Перший блок з статистикою -->
     <div class="col-lg-4 col-md-6 col-12 mb-4">
-      <a href="{% url 'tasker:task-list' %}" class="card h-100 bg-gradient-primary text-decoration-none">
+      <a href="{% url 'tasker:tasks-list' %}" class="card h-100 bg-gradient-primary text-decoration-none">
         <div class="card-body p-4 position-relative">
           <h5 class="text-white fw-bold mb-4">Tasks Overview</h5>
           <div class="row">
@@ -60,7 +60,7 @@
 
     <!-- Блок WORKERS -->
     <div class="col-lg-4 col-md-6 col-12 mb-4">
-      <a href="{% url 'tasker:worker-list' %}" class="card h-100 bg-gradient-primary text-decoration-none">
+      <a href="{% url 'tasker:workers-list' %}" class="card h-100 bg-gradient-primary text-decoration-none">
         <div class="card-body p-4 position-relative">
           <h5 class="text-white fw-bold mb-4">Workers Overview</h5>
           <div class="row">
@@ -150,7 +150,7 @@
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="{{ item.completion_percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ item.completion_percentage }}%"></div>
+          <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="{{ item.completion_percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: { item.completion_percentage }%"></div>
         </div>
       </div>
     </td>
@@ -179,7 +179,11 @@
               <i class="ni ni-check-bold text-info text-gradient"></i>
             </span>
             <div class="timeline-content">
-              <h6 class="text-dark text-sm font-weight-bold mb-0">{{ task.name }}</h6>
+              <h6 class="text-dark text-sm font-weight-bold mb-0">
+                <a href="{% url 'tasker:tasks-detail' pk=task.id %}" class="text-decoration-none text-dark">
+                  {{ task.name }}
+                </a>
+              </h6>
               <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
                 {{ task.deadline|date:"d M Y, H:i" }}
               </p>

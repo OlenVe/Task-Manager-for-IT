@@ -95,3 +95,11 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+Visit http://127.0.0.1:8000/ to access the application.
+
+## Testing
+Run tests with:
+```bash
+python manage.py test tasker.tests
+```
+

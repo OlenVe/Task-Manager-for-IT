@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
 
 from tasker.models import Position
 
@@ -10,7 +9,5 @@ class PositionForm(forms.ModelForm):
         fields = "__all__"
 
 
-
 class PositionSearchForm(forms.Form):
     name = forms.CharField(max_length=100, required=False, label="Search by name")
-

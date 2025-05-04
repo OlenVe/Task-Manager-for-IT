@@ -20,17 +20,17 @@
             <tr>
               <td>{{ task.name }}</td>
               <td>
-                <a href="{% url 'tasker:task-detail' pk=task.id %}" class="btn btn-outline-info btn-sm px-3">
+                <a href="{% url 'tasker:tasks-detail' pk=task.id %}" class="btn btn-outline-info btn-sm px-3">
                   Detail
                 </a>
               </td>
               <td>
-                <a href="{% url 'tasker:task-update' pk=task.id %}" class="btn btn-primary btn-sm px-3">
+                <a href="{% url 'tasker:tasks-update' pk=task.id %}" class="btn btn-primary btn-sm px-3">
                   Update
                 </a>
               </td>
               <td>
-                <a href="{% url 'tasker:task-delete' pk=task.id %}" class="btn btn-danger btn-sm px-3">
+                <a href="{% url 'tasker:tasks-delete' pk=task.id %}" class="btn btn-danger btn-sm px-3">
                   Delete
                 </a>
               </td>

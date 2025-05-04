@@ -23,53 +23,37 @@ class TaskDetailView(LoginRequiredMixin, generic.DetailView):
 
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
-    form_class = TaskForm
-    template_name = 'tasker/task/task_form.html'
-    success_url = reverse_lazy('tasker:task-list')
+    fields = ("name", "description", "deadline", "priority", "task_type", "workers")
+    template_name = "tasker/task/task_form.html"
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs["project"] = get_object_or_404(Project, id=self.kwargs["project_id"])
-        kwargs["user"] = self.request.user
-        return kwargs
+    def get_success_url(self):
+        return reverse_lazy("tasker:tasks-list")
 
     def form_valid(self, form):
-        # Встановлюємо обов'язкові поля перед збереженням
-        form.instance.project = get_object_or_404(Project, id=self.kwargs["project_id"])
-        form.instance.created_by = self.request.user
-        form.instance.team = self.request.user.team  # Встановлюємо команду з поточного користувача
+        project = get_object_or_404(Project, pk=self.kwargs["project_id"])
+        form.instance.project = project
+        form.instance.team = project.team
+        return super().form_valid(form)
 
-        try:
-            with transaction.atomic():
-                # Спочатку зберігаємо основну форму
-                response = super().form_valid(form)
-
-                # Якщо є поле workers (ManyToMany), встановлюємо його після збереження
-                if hasattr(form.instance, 'workers') and 'workers' in form.cleaned_data:
-                    form.instance.workers.set(form.cleaned_data['workers'])
-
-                return response
-
-        except Exception as e:
-            print("❌ Помилка при збереженні:", e)
-            print("Дані форми:", form.cleaned_data)
-            return self.form_invalid(form)
-
-    def form_invalid(self, form):
-        print("❌ Помилки валідації форми:")
-        print(form.errors)
-        return super().form_invalid(form)
 
 class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Task
-    fields = ("name", "description", "deadline", "is_completed", "priority", "task_type", "workers")
-    success_url = reverse_lazy("tasker:task-list")
+    fields = (
+        "name",
+        "description",
+        "deadline",
+        "is_completed",
+        "priority",
+        "task_type",
+        "workers",
+    )
+    success_url = reverse_lazy("tasker:tasks-list")
     template_name = "tasker/task/task_form.html"
 
 
 class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Task
-    success_url = reverse_lazy("tasker:task-list")
+    success_url = reverse_lazy("tasker:tasks-list")
     template_name = "tasker/task/task_confirm_delete.html"
 
 
@@ -77,4 +61,4 @@ def change_status(request, pk):
     task = get_object_or_404(Task, pk=pk)
     task.is_completed = not task.is_completed
     task.save()
-    return redirect(reverse_lazy("tasker:task-list"))
+    return redirect(reverse_lazy("tasker:tasks-list"))

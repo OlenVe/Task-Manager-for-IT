@@ -13,22 +13,21 @@ class TaskTypeListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 10
 
 
-
 class TaskTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = TaskType
     fields = "__all__"
-    success_url = reverse_lazy("tasker:task_type-list")
+    success_url = reverse_lazy("tasker:task-types-list")
     template_name = "tasker/task_type/task_type_form.html"
 
 
 class TaskTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = TaskType
     fields = "__all__"
-    success_url = reverse_lazy("tasker:task_type-list")
+    success_url = reverse_lazy("tasker:task-types-list")
     template_name = "tasker/task_type/task_type_form.html"
 
 
 class TaskTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = TaskType
-    success_url = reverse_lazy("tasker:task_type-list")
+    success_url = reverse_lazy("tasker:task-types-list")
     template_name = "tasker/task_type/task_type_confirm_delete.html"

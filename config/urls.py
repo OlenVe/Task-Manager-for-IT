@@ -10,3 +10,9 @@ urlpatterns = [
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("", include("tasker.urls", namespace="tasker")),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path('__debug__/', include('debug_toolbar.urls')),
+    ]
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

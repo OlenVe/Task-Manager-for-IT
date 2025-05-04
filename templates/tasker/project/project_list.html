@@ -76,7 +76,7 @@
   <div class="projects-table-wrapper">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h2 class="mb-0">Project List</h2>
-      <a href="{% url 'tasker:project-create' %}" class="btn btn-primary btn-create">Create</a>
+      <a href="{% url 'tasker:projects-create' %}" class="btn btn-primary btn-create">Create</a>
     </div>
 
     {% if project_list %}
@@ -94,17 +94,17 @@
             <tr>
               <td>{{ project.name }}</td>
               <td>
-                <a href="{% url 'tasker:project-detail' pk=project.id %}" class="btn-detail">
+                <a href="{% url 'tasker:projects-detail' pk=project.id %}" class="btn-detail">
                   Detail
                 </a>
               </td>
               <td>
-                <a href="{% url 'tasker:project-update' pk=project.id %}" class="btn-update">
+                <a href="{% url 'tasker:projects-update' pk=project.id %}" class="btn-update">
                   Update
                 </a>
               </td>
               <td>
-                <a href="{% url 'tasker:project-delete' pk=project.id %}" class="btn-delete">
+                <a href="{% url 'tasker:projects-delete' pk=project.id %}" class="btn-delete">
                   Delete
                 </a>
               </td>

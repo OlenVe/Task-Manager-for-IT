@@ -6,6 +6,6 @@
     {% csrf_token %}
 
     <input type="submit" value="Yes" class="btn btn-danger">
-    <a href="{% url "tasker:project-list" %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url "tasker:projects-list" %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}

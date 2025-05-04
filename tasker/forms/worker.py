@@ -14,4 +14,3 @@ class WorkerForm(UserCreationForm):
             "project",
             "team",
         )
-

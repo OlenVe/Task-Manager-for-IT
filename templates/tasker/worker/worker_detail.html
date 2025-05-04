@@ -22,8 +22,8 @@
             <p><strong>Team:</strong> {{ worker.team }}</p>
 
             <div class="d-flex gap-2 mt-3">
-              <a href="{% url 'tasker:worker-update' pk=worker.id %}" class="btn btn-primary">Update Info</a>
-              <a href="{% url 'tasker:worker-delete' pk=worker.id %}" class="btn btn-danger">Delete</a>
+              <a href="{% url 'tasker:workers-update' pk=worker.id %}" class="btn btn-primary">Update Info</a>
+              <a href="{% url 'tasker:workers-delete' pk=worker.id %}" class="btn btn-danger">Delete</a>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="row">
               {% for task in worker.tasks.all %}
                 <div class="col-md-6 mb-4">
-                  <a href="{% url 'tasker:task-detail' pk=task.id %}" class="text-decoration-none text-dark">
+                  <a href="{% url 'tasker:tasks-detail' pk=task.id %}" class="text-decoration-none text-dark">
                     <div class="border rounded p-3 h-100 bg-light hover-shadow">
                       <h5>{{ task.name }}</h5>
                       <p><strong>Project:</strong> {{ task.project }}</p>

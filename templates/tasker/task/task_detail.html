@@ -23,7 +23,7 @@
                 <span class="badge bg-warning text-dark">In Progress</span>
               {% endif %}
 
-              <form action="{% url 'tasker:change-status' pk=task.id %}" method="post" class="m-0">
+              <form action="{% url 'tasker:tasks-change-status' pk=task.id %}" method="post" class="m-0">
                 {% csrf_token %}
                 {% if task.is_completed %}
                   <button class="btn btn-outline-primary btn-sm" type="submit">Undo</button>
@@ -35,7 +35,7 @@
 
             <dt class="col-sm-4">Project</dt>
             <dd class="col-sm-8">
-              <a href="{% url 'tasker:project-detail' pk=task.project.id %}">
+              <a href="{% url 'tasker:projects-detail' pk=task.project.id %}">
                 {{ task.project.name }}
               </a>
             </dd>
@@ -60,8 +60,8 @@
           </dl>
 
           <div class="text-center mt-4">
-            <a href="{% url 'tasker:task-update' pk=task.id %}" class="btn btn-outline-primary me-2">Редагувати</a>
-            <a href="{% url 'tasker:task-delete' pk=task.id %}" class="btn btn-outline-danger">Видалити</a>
+            <a href="{% url 'tasker:tasks-update' pk=task.id %}" class="btn btn-outline-primary me-2">Редагувати</a>
+            <a href="{% url 'tasker:tasks-delete' pk=task.id %}" class="btn btn-outline-danger">Видалити</a>
           </div>
 
         </div>

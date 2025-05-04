@@ -9,6 +9,7 @@ PRIORITY_CHOICES = [
     ("Critical", "Critical"),
 ]
 
+
 class Position(models.Model):
     name = models.CharField(max_length=100)
 
@@ -37,18 +38,28 @@ class Task(models.Model):
     deadline = models.DateTimeField()
     is_completed = models.BooleanField(default=False)
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES, default="Low")
-    task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE, related_name="tasks")
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="tasks", null=True, blank=True)
-    workers = models.ManyToManyField("accounts.Worker", related_name="tasks", blank=True)
-    project = models.ForeignKey("Project", on_delete=models.CASCADE, related_name="tasks", null=True, blank=True)
-    discussion = models.ForeignKey('Discussion',
-                                   on_delete=models.CASCADE,
-                                   related_name="tasks",
-                                   null=True,
-                                   blank=True)
+    task_type = models.ForeignKey(
+        TaskType, on_delete=models.CASCADE, related_name="tasks"
+    )
+    team = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="tasks", null=True, blank=True
+    )
+    workers = models.ManyToManyField(
+        "accounts.Worker", related_name="tasks", blank=True
+    )
+    project = models.ForeignKey(
+        "Project", on_delete=models.CASCADE, related_name="tasks", null=True, blank=True
+    )
+    discussion = models.ForeignKey(
+        "Discussion",
+        on_delete=models.CASCADE,
+        related_name="tasks",
+        null=True,
+        blank=True,
+    )
 
     class Meta:
-        ordering = ['-deadline']
+        ordering = ["-deadline"]
 
 
 class Project(models.Model):
@@ -63,8 +74,7 @@ class Project(models.Model):
 class Discussion(models.Model):
     text = models.TextField(blank=False, help_text="Text of the message")
     created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Date and time when the message was created"
+        auto_now_add=True, help_text="Date and time when the message was created"
     )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -80,10 +90,3 @@ class Discussion(models.Model):
 
     def __str__(self) -> str:
         return f"{self.text[:50]}..."
-
-
-
-
-
-
-    
