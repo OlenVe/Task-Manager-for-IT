@@ -7,7 +7,6 @@ from django.db import transaction
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-# from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -59,11 +58,6 @@ class SignUpView(View):
                 )
                 email = EmailMessage(mail_subject, message, to=[user.email])
                 email.content_subtype = "html"
-
-                # send message in the main thread, user will wait until message will be sent
-                # email.send()
-
-                # send message in a separate thread to avoid blocking the main thread
                 threading.Thread(target=email.send).start()
         except Exception as e:
             logging.error(f"Error sending email: {e}")
@@ -107,7 +101,6 @@ class ActivateAccountView(View):
         if user is not None and account_activation_token.check_token(user, token):
             user.is_active = True
             user.save()
-            # login(request, user)
             messages.success(
                 request,
                 "Thank you for confirming your email. You can now login to your account.",

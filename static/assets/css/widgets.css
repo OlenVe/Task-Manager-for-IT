@@ -648,3 +648,23 @@ ul.errorlist {
     padding: 3px;
     border-radius: 5px 0 0 5px;
 }
+
+/* Remove all background image references */
+.inline-group ul.tools a.add,
+.inline-group div.add-row a,
+.inline-group .tabular tr.add-row td a {
+    padding-left: 16px;
+    font-size: 12px;
+}
+
+.add-another {
+    width: 16px;
+    height: 16px;
+}
+
+.related-lookup {
+    width: 16px;
+    height: 16px;
+}
+
+/* Keep other styles without background images */
