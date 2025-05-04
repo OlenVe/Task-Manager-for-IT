@@ -5,11 +5,10 @@ License - nucleoapp.com/license/
 
 -------------------------------- */
 @font-face {
-  font-family: 'NucleoIcons';
-  src: url('/static/assets/fonts/nucleo-icons.eot');
-  src: url('/static/assets/fonts/nucleo-icons.eot') format('embedded-opentype'), url('/static/assets/fonts/nucleo-icons.woff2') format('woff2'), url('/static/assets/fonts/nucleo-icons.woff') format('woff'), url('/static/assets/fonts/nucleo-icons.ttf') format('truetype'), url('/static/assets/fonts/nucleo-icons.svg') format('svg');
-  font-weight: normal;
+  font-family: 'nucleo-icons';
   font-style: normal;
+  font-weight: normal;
+  font-display: swap;
 }
 
 /*------------------------

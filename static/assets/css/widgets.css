@@ -19,7 +19,7 @@
 }
 
 .selector-chosen select {
-    border-top: none;
+    padding: 0;
 }
 
 .selector-available h2, .selector-chosen h2 {
@@ -44,25 +44,12 @@
 }
 
 .selector .selector-filter {
-    background: white;
-    border: 1px solid #ccc;
-    border-width: 0 1px;
     padding: 8px;
-    color: #999;
-    font-size: 10px;
-    margin: 0;
-    text-align: left;
 }
 
 .selector .selector-filter label,
 .inline-group .aligned .selector .selector-filter label {
-    float: left;
-    margin: 10px 3px 0;
-    width: 25px;
-    height: 25px;
     padding: 0;
-    overflow: hidden;
-    line-height: 1;
 }
 
 .selector .selector-available input {
@@ -123,7 +110,7 @@
 }
 
 .selector-add {
-    background: url(../images/selector-icons.svg) 0 -96px no-repeat;
+    padding: 3px 8px;
 }
 
 .active.selector-add:focus, .active.selector-add:hover {
@@ -131,7 +118,7 @@
 }
 
 .selector-remove {
-    background: url(../images/selector-icons.svg) 0 -64px no-repeat;
+    padding: 3px 8px;
 }
 
 .active.selector-remove:focus, .active.selector-remove:hover {
@@ -226,7 +213,7 @@ a.active.selector-clearall:focus, a.active.selector-clearall:hover {
 }
 
 .stacked .selector-add {
-    background: url(../images/selector-icons.svg) 0 -32px no-repeat;
+    padding: 3px 8px;
     cursor: default;
 }
 
@@ -236,7 +223,7 @@ a.active.selector-clearall:focus, a.active.selector-clearall:hover {
 }
 
 .stacked .selector-remove {
-    background: url(../images/selector-icons.svg) 0 0 no-repeat;
+    padding: 3px 8px;
     cursor: default;
 }
 
@@ -287,6 +274,7 @@ p.datetime {
     min-width: 0;
     margin-left: 5px;
     margin-bottom: 4px;
+    padding: 2px 8px;
 }
 
 table p.datetime {
@@ -415,6 +403,7 @@ span.clearable-file-input label {
     font-weight: 700;
     font-size: 12px;
     color: #333;
+    padding: 8px;
 }
 
 .calendar th {
@@ -439,6 +428,7 @@ span.clearable-file-input label {
 .calendar td.selected a {
     background: #79aec8;
     color: #fff;
+    padding: 2px 6px;
 }
 
 .calendar td.nonday {
@@ -552,7 +542,7 @@ ul.timelist, .timelist li {
 
 .inline-deletelink {
     float: right;
-    text-indent: -9999px;
+    padding: 3px 8px;
     background: url(../images/inline-delete.svg) 0 0 no-repeat;
     width: 16px;
     height: 16px;
@@ -668,3 +658,17 @@ ul.errorlist {
 }
 
 /* Keep other styles without background images */
+
+.selector-window select {
+    padding: 0;
+}
+
+.selector-filter input[type=text] {
+    padding: 2px 8px;
+}
+
+.selector-clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
