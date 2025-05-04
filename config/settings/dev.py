@@ -1,13 +1,10 @@
-import os
-
-import config
 from .base import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = "django-insecure-%b_cpb&ahs8t!*4gyl(d5w@2k$@2%$du#0=ggo94-ns!6_ziy!"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DJANGO_DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
