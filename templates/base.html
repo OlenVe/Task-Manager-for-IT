@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Task Manager{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "assets/css/background.css" %}">
+  <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/soft-ui-dashboard.css' %}" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <!-- Sidebar -->
+  {% include 'includes/sidebar.html' %}
+
+  <!-- Main content -->
+  <main class="main-content border-radius-lg">
+    <div class="container-fluid py-4">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="{% static "assets/js/core/popper.min.js" %}"></script>
+  <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/soft-ui-dashboard.min.js' %}"></script>
+</body>
+</html>

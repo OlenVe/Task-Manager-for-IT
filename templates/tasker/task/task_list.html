@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow-sm p-4 w-100 task-list-card">
+    <h3 class="mb-4 text-center">Tasks List</h3>
+
+    {% if task_list %}
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Name</th>
+            <th>Detail</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in task_list %}
+            <tr>
+              <td>{{ task.name }}</td>
+              <td>
+                <a href="{% url 'tasker:tasks-detail' pk=task.id %}" class="btn btn-outline-info btn-sm px-3">
+                  Detail
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'tasker:tasks-update' pk=task.id %}" class="btn btn-primary btn-sm px-3">
+                  Update
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'tasker:tasks-delete' pk=task.id %}" class="btn btn-danger btn-sm px-3">
+                  Delete
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="text-muted text-center">There are no tasks in the service.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

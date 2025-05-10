@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="projects-container">
+  <div class="projects-table-wrapper">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="mb-0">Project List</h2>
+      <a href="{% url 'tasker:projects-create' %}" class="btn btn-primary btn-create">Create</a>
+    </div>
+
+    {% if project_list %}
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Detail</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for project in project_list %}
+            <tr>
+              <td>{{ project.name }}</td>
+              <td>
+                <a href="{% url 'tasker:projects-detail' pk=project.id %}" class="btn-detail">
+                  Detail
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'tasker:projects-update' pk=project.id %}" class="btn-update">
+                  Update
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'tasker:projects-delete' pk=project.id %}" class="btn-delete">
+                  Delete
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="text-muted text-center mb-0">There are no projects in the service.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

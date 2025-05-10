@@ -1,0 +1,703 @@
+[
+{
+    "model": "accounts.worker",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$el3k1jslENgkbpS3W9fAjC$u4jeXKDn12ORLp8aOQy+SNW10A/X4pL/psEfVCLBn0M=",
+        "last_login": "2025-04-17T12:17:51.071Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.ii",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:39:37.303Z",
+        "position": 2,
+        "project": null,
+        "team": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$sTLn6YGH8vvfcihQBIuWOM$Rlnym4XmneNJX+COYquQQn7NfzS/o9wJhYopZMoFrYw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Frodo",
+        "first_name": "Matthew",
+        "last_name": "Anderson",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:48:43.820Z",
+        "position": 4,
+        "project": null,
+        "team": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$zsdUm94C1tqvECPd53ebWw$vcDAKW+PtAsSndIdWa8ZAa7UzyGsVcSc/4wOWU/czbA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Aragorn",
+        "first_name": "Christopher",
+        "last_name": "GarcÝa",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:55:53.889Z",
+        "position": 1,
+        "project": null,
+        "team": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$9HKruXeAM3DQnN4AialfE1$NCa8F8g6IVGdV8rxj4fS9AxPuWKjYHd/uzmgfKeZOvs=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Gandalf",
+        "first_name": "David",
+        "last_name": "GarcÝa",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:56:21.089Z",
+        "position": 3,
+        "project": null,
+        "team": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$8iHzqtUBQEoPGLBzSVIb0o$pByzfdxrin0M9jnIEypV759LK8uS1Au9ZUBDgm6NsS8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Legolas",
+        "first_name": "William",
+        "last_name": "Rodriguez",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:57:02.232Z",
+        "position": 6,
+        "project": null,
+        "team": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$JCpkj9xrhPEahjtv6VpuyI$BHqktYRL+bzxi9BxfcJDK1hB3/cn2E3sLT91DN+uU9o=",
+        "last_login": "2025-04-17T10:47:32.279Z",
+        "is_superuser": false,
+        "username": "Gimli",
+        "first_name": "Michael",
+        "last_name": "Miller",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:57:24.298Z",
+        "position": 2,
+        "project": null,
+        "team": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$4tJ0raQDWRmfS2KHoelGSI$0c7H2kq/sOXihydofv8wkNgFKugYx2bS+uyMj/FdJaI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Boromir",
+        "first_name": "William",
+        "last_name": "Anderson",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:57:57.387Z",
+        "position": 2,
+        "project": null,
+        "team": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$18KCme4gdUNnemQni3ShRO$2A9OvrDF8kyJLnQ5I3tWvWnq3R8PVxQbi+rf13w7XLY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Samwise",
+        "first_name": "Charles",
+        "last_name": "GarcÝa",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:58:23.632Z",
+        "position": 5,
+        "project": null,
+        "team": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$W9IjvYvZUs3pSWrhpC8E6I$9fHsmog/BN/FKRZkctuhLrWwXgNW40qF2JNzWhrM9J0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Arwen",
+        "first_name": "David",
+        "last_name": "Davis",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:58:45.432Z",
+        "position": 4,
+        "project": null,
+        "team": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$SVwEcDmaMhTBTeivAQ7v7n$998A1RBTBVu+im6hWxCYQI6m+TFco6TiOAvlCE2Fh4c=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Gollum",
+        "first_name": "William",
+        "last_name": "Gonzalez",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:59:10.001Z",
+        "position": 3,
+        "project": null,
+        "team": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$nojJIyHuaKdqGDvgHC5WJg$n+Pquw2YHjnW6ufwb7pWOZA2IpWTXiHLRJ/kYMVCg7U=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Galandriel",
+        "first_name": "Daniel",
+        "last_name": "Johnson",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T22:59:33.159Z",
+        "position": 2,
+        "project": null,
+        "team": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$EXTGdDncDKi5TXBavqvI3L$Achdvy6/rCR/c1b9TijMSRkF1g6P1NR06sIHbpy9Mig=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Saruman",
+        "first_name": "Matthew",
+        "last_name": "MartÝnez",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T23:00:11.554Z",
+        "position": 1,
+        "project": null,
+        "team": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 13,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$zzeTNojiGNdPesqvhK8NVg$L4Yu6UGF7NcIID1TEmniChcf5dJbGOmg2ZGkFw1PzjQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Merry",
+        "first_name": "Robert",
+        "last_name": "Rodriguez",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T23:00:33.455Z",
+        "position": 6,
+        "project": null,
+        "team": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 14,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$mpoRkXE0hS6X0YxaMwcRQy$tlKKbzvhZNZ7liqWcjUi9lwIJXeihIQ83Ju0xN7MuCs=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Pippin",
+        "first_name": "John",
+        "last_name": "Davis",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T23:00:54.093Z",
+        "position": 5,
+        "project": null,
+        "team": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 15,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$6xlqMrF4u1gHOHgAEwO75G$SqqU3gLlCliEAAvCNXoRmXasbfapWhzXaVwszbepyxY=",
+        "last_login": "2025-04-17T10:57:09.082Z",
+        "is_superuser": false,
+        "username": "Bilbo",
+        "first_name": "Daniel",
+        "last_name": "GarcÝa",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T23:01:22.031Z",
+        "position": 4,
+        "project": null,
+        "team": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 16,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$oqgrL033D97u0vP2bQDBZl$1zSmlunBmzBX+6fUEolJgMK5ZmeiMbhlMciT1MNXCxU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Elrond",
+        "first_name": "William",
+        "last_name": "Gonzalez",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T23:01:47.487Z",
+        "position": 2,
+        "project": null,
+        "team": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tasker.position",
+    "pk": 1,
+    "fields": {
+        "name": "Frontend Developer"
+    }
+},
+{
+    "model": "tasker.position",
+    "pk": 2,
+    "fields": {
+        "name": "Backend Developer"
+    }
+},
+{
+    "model": "tasker.position",
+    "pk": 3,
+    "fields": {
+        "name": "Full Stack Developer"
+    }
+},
+{
+    "model": "tasker.position",
+    "pk": 4,
+    "fields": {
+        "name": "DevOps Engineer"
+    }
+},
+{
+    "model": "tasker.position",
+    "pk": 5,
+    "fields": {
+        "name": "Quality Assurance Engineer"
+    }
+},
+{
+    "model": "tasker.position",
+    "pk": 6,
+    "fields": {
+        "name": "UI/UX Designer"
+    }
+},
+{
+    "model": "tasker.team",
+    "pk": 1,
+    "fields": {
+        "name": "Full Stack Force",
+        "members": [
+            2
+        ]
+    }
+},
+{
+    "model": "tasker.team",
+    "pk": 2,
+    "fields": {
+        "name": "Tech Pioneers",
+        "members": [
+            3,
+            9,
+            15
+        ]
+    }
+},
+{
+    "model": "tasker.team",
+    "pk": 3,
+    "fields": {
+        "name": "Innovation Crew",
+        "members": [
+            15
+        ]
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 1,
+    "fields": {
+        "name": "Bug Fix"
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 2,
+    "fields": {
+        "name": "Feature Development"
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 3,
+    "fields": {
+        "name": "Code Refactoring"
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 4,
+    "fields": {
+        "name": "Performance Optimization"
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 5,
+    "fields": {
+        "name": "Security Improvement"
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 6,
+    "fields": {
+        "name": "Testing"
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 7,
+    "fields": {
+        "name": "Documentation"
+    }
+},
+{
+    "model": "tasker.tasktype",
+    "pk": 8,
+    "fields": {
+        "name": "Deployment"
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 1,
+    "fields": {
+        "name": "User Authentication Integration",
+        "description": "Integrate the user authentication system, including registration, login, and password recovery features !!!",
+        "deadline": "2025-04-25T18:00:00Z",
+        "is_completed": true,
+        "priority": "Low",
+        "task_type": 8,
+        "team": 1,
+        "project": 1,
+        "discussion": null,
+        "workers": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 2,
+    "fields": {
+        "name": "Mobile App UI Design",
+        "description": "Create the user interface for the mobile version of the fitness app, ensuring itĺs responsive and user-friendly.",
+        "deadline": "2025-04-30T17:44:00Z",
+        "is_completed": true,
+        "priority": "High",
+        "task_type": 4,
+        "team": 2,
+        "project": 3,
+        "discussion": null,
+        "workers": [
+            5,
+            8
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 3,
+    "fields": {
+        "name": "Implement Task Categories",
+        "description": "Add functionality to categorize tasks into different types (e.g., Bug, Feature, Documentation) and display them accordingly.",
+        "deadline": "2025-05-14T18:50:00Z",
+        "is_completed": false,
+        "priority": "Low",
+        "task_type": 2,
+        "team": 2,
+        "project": 3,
+        "discussion": null,
+        "workers": [
+            10
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 4,
+    "fields": {
+        "name": "Payment Gateway Integration",
+        "description": "Integrate a secure payment gateway into the e-commerce platform for online transactions.",
+        "deadline": "2025-04-29T20:50:00Z",
+        "is_completed": true,
+        "priority": "High",
+        "task_type": 8,
+        "team": 2,
+        "project": 2,
+        "discussion": null,
+        "workers": [
+            1
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 5,
+    "fields": {
+        "name": "Review and Optimize Database Queries",
+        "description": "Analyze and optimize existing database queries to improve the app's performance.",
+        "deadline": "2025-05-10T18:52:00Z",
+        "is_completed": false,
+        "priority": "Medium",
+        "task_type": 3,
+        "team": 2,
+        "project": 4,
+        "discussion": null,
+        "workers": [
+            10
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 6,
+    "fields": {
+        "name": "Implement Task Comments",
+        "description": "Add a feature for users to leave comments on tasks for team collaboration.",
+        "deadline": "2025-05-26T17:53:00Z",
+        "is_completed": true,
+        "priority": "High",
+        "task_type": 2,
+        "team": 1,
+        "project": 2,
+        "discussion": null,
+        "workers": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 7,
+    "fields": {
+        "name": "Implement User Profile Settings",
+        "description": "Allow users to update their personal details, such as name, email, and profile picture.",
+        "deadline": "2025-05-06T17:54:00Z",
+        "is_completed": false,
+        "priority": "Low",
+        "task_type": 2,
+        "team": 1,
+        "project": 1,
+        "discussion": null,
+        "workers": [
+            6
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 8,
+    "fields": {
+        "name": "Implement Multi-Language Support",
+        "description": "Add the ability for the app to support multiple languages, allowing users to switch between languages.",
+        "deadline": "2025-06-24T17:10:00Z",
+        "is_completed": true,
+        "priority": "Low",
+        "task_type": 2,
+        "team": 1,
+        "project": 1,
+        "discussion": null,
+        "workers": [
+            15
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 9,
+    "fields": {
+        "name": "Integrate File Upload Feature",
+        "description": "Enable file uploads for tasks, allowing users to attach documents, images, and other files to tasks.",
+        "deadline": "2025-05-06T19:14:00Z",
+        "is_completed": false,
+        "priority": "Low",
+        "task_type": 2,
+        "team": 1,
+        "project": 2,
+        "discussion": null,
+        "workers": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 10,
+    "fields": {
+        "name": "Implement User Role Management",
+        "description": "Develop a system where users can have different roles (admin, manager, employee) with various access levels.",
+        "deadline": "2025-06-01T18:15:00Z",
+        "is_completed": true,
+        "priority": "Critical",
+        "task_type": 4,
+        "team": 1,
+        "project": 2,
+        "discussion": null,
+        "workers": [
+            7
+        ]
+    }
+},
+{
+    "model": "tasker.task",
+    "pk": 11,
+    "fields": {
+        "name": "Develop Admin Dashboard",
+        "description": "Build a centralized admin dashboard where administrators can manage users, tasks, and projects.",
+        "deadline": "2025-05-16T18:54:00Z",
+        "is_completed": false,
+        "priority": "Low",
+        "task_type": 4,
+        "team": 2,
+        "project": 2,
+        "discussion": null,
+        "workers": [
+            10
+        ]
+    }
+},
+{
+    "model": "tasker.project",
+    "pk": 1,
+    "fields": {
+        "name": "SmartTasker",
+        "description": "A task management platform that allows users to create, organize, and track task completion. It includes collaboration features for teams, enabling task prioritization, setting deadlines, and assigning responsibilities. The goal is to improve team organization and work efficiency.",
+        "team": 1
+    }
+},
+{
+    "model": "tasker.project",
+    "pk": 2,
+    "fields": {
+        "name": "FitTrack",
+        "description": "A fitness mobile app that tracks workouts, nutrition, and user progress. Users can set personal goals, receive exercise and diet recommendations, and review analytics of their achievements. The aim is to motivate users to lead a healthy lifestyle.",
+        "team": 2
+    }
+},
+{
+    "model": "tasker.project",
+    "pk": 3,
+    "fields": {
+        "name": "EduConnect",
+        "description": "An online education platform that enables instructors to create courses, conduct live lessons, and provide access to learning materials. Students can participate in classes, complete assignments, and receive grades. The goal is to facilitate access to quality education for people worldwide.",
+        "team": 3
+    }
+},
+{
+    "model": "tasker.project",
+    "pk": 4,
+    "fields": {
+        "name": "ShopEase",
+        "description": "An e-commerce platform for small businesses that allows store owners to quickly create online shops without the need for coding. It includes features for inventory management, order processing, and customer interaction. The goal is to simplify the launch and management of online businesses for small and medium entrepreneurs.",
+        "team": 1
+    }
+}
+]

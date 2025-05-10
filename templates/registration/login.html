@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .login-card h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .signup-link {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  body {
+    background-color: #f8f9fa;
+  }
+</style>
+
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2>Login</h2>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        Your username and password didn't match. Please try again.
+      </div>
+    {% endif %}
+
+    <form method="post" action="{% url 'accounts:login' %}">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="id_username">Username:</label>
+        <input type="text" name="username" id="id_username" class="form-control" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="id_password">Password:</label>
+        <input type="password" name="password" id="id_password" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+    <div class="signup-link">
+      <p>Don't have an account? <a href="{% url 'accounts:signup' %}">Sign up</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
